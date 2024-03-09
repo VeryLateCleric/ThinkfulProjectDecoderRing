@@ -7,7 +7,16 @@ const caesarModule = (function () {
   // you can add any code you want within this function scope
 
   function caesar(input, shift, encode = true) {
-    // your solution code here
+    let result = '';
+    for (let i = 0; i < message.length; i++) {
+      let char = message.charAt(i);
+    
+      if (char.match(/[a-zA-Z]/)) {
+        let code = char.charCodeAt(0);
+
+        
+      }
+    }
   }
 
   return {
