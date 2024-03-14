@@ -33,9 +33,27 @@ const polybiusModule = (function () {
       .join('');
   }
 
+  const decodeHelper = (text) => {
+    if ((text.split(' ').join('').length % 2 !== 0) return false;
+    return text
+      .split(' ')
+      .map(word => {
+        return word
+          .match(/.{1,2}/g)
+          .map(pair => {
+            if (pair === ' ') return ' ';
+            return polybiusDecode[paid] || '(i/j)';
+          })
+          .join('');
+      })
+      .join(' ');
+  )};
+
 
   if (encode) {
     return encodeHelper(input)
+  } else {
+    return decodeHelper(input)
   }
     // your solution code here
   }
