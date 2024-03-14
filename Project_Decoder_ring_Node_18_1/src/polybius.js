@@ -17,6 +17,14 @@ const polybiusModule = (function () {
       z: '55',
   };
 
+  const polybiusSquareDecode = {
+    11: 'a', 21: 'b', 31: 'c', 41: 'd', 51: 'e',
+    12: 'f', 22: 'g', 32: 'h', 42: '(i/j)', 52: 'k',
+    13: 'l', 23: 'm', 33: 'n', 43: 'o', 53: 'p',
+    14: 'q', 24: 'r', 34: 's', 44: 't', 54: 'u',
+    15: 'v', 25: 'w', 35: 'x', 45: 'y', 55: 'z',
+};
+
   const polybiusDecode = {};
   for (let key in polybiusSquare) {
     polybiusDecode[polybiusSquare[key]] = key;
@@ -34,7 +42,7 @@ const polybiusModule = (function () {
   }
 
   const decodeHelper = (text) => {
-    if ((text.split(' ').join('').length % 2 !== 0) return false;
+    if ((text.split(' ').join('').length) % 2 !== 0) return false;
     return text
       .split(' ')
       .map(word => {
@@ -42,12 +50,13 @@ const polybiusModule = (function () {
           .match(/.{1,2}/g)
           .map(pair => {
             if (pair === ' ') return ' ';
-            return polybiusDecode[paid] || '(i/j)';
+            if (pair === '42') return '(i/j)';
+            return polybiusSquareDecode[pair] || '(i/j)';
           })
           .join('');
       })
       .join(' ');
-  )};
+  };
 
 
   if (encode) {
@@ -62,5 +71,6 @@ const polybiusModule = (function () {
     polybius,
   };
 })();
+
 
 module.exports = { polybius: polybiusModule.polybius };
