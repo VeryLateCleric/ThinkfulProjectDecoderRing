@@ -21,6 +21,22 @@ const polybiusModule = (function () {
   for (let key in polybiusSquare) {
     polybiusDecode[polybiusSquare[key]] = key;
   }
+  const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  const encodeHelper = (text) => {
+    return text
+      .toLowerCase()
+      .split('')
+      .map(char => {
+        if (char === ' ') return ' ';
+        return polybiusSquare[char] || char;
+      })
+      .join('');
+  }
+
+
+  if (encode) {
+    return encodeHelper(input)
+  }
     // your solution code here
   }
 

@@ -44,7 +44,7 @@ describe('Polybius Cipher', () => {
             const ciphertext = "42 1123 443251 15512445 2343415113 4312 11 234341512433 23114324 22513351241113."
             const expected = "I am the very model of a modern ma(i/j)or general."
             const actual = polybius(ciphertext, false);
-            expect(actual).to.be.false;
+            expect(actual).to.equal(expected);
         })
       });
 })
