@@ -7,6 +7,7 @@ const substitutionModule = (function () {
   // you can add any code you want within this function scope
 
   function substitution(input, alphabet, encode = true) {
+    if (!isValidAlphabet(alphabet)) return false;
     // your solution code here
   }
 
