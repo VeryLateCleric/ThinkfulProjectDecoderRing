@@ -1,6 +1,6 @@
 // Write your tests here!
 const { expect } = require("chai");
-const substitution = require('../src/substitution');
+const { substitution } = require('../src/substitution');
 
 describe("substitution", () => {
     it("should correctly encode the input", () => {

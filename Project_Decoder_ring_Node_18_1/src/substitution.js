@@ -5,6 +5,17 @@
 
 const substitutionModule = (function () {
   // you can add any code you want within this function scope
+  function isValidAlphabet(alphabet) {
+    const alphabetSet = new Set()
+    if (alphabetSet.size !== 26) return false;
+
+    const seen = new Set();
+    for (let char of alphabet) {
+      if (seen.has(char)) return false;
+      seen.add(char)
+    }
+    return true
+  }
 
   function substitution(input, alphabet, encode = true) {
     if (!isValidAlphabet(alphabet)) return false;
