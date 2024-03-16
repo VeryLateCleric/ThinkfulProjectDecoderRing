@@ -6,7 +6,7 @@
 const substitutionModule = (function () {
   // you can add any code you want within this function scope
   function isValidAlphabet(alphabet) {
-    if (!alphabet || alphabet.length !== 26) return false;
+    if (!alphabet || alphabet.length !== 26) return false; // !alphabet prevents TypeError when undefined
 
     const seen = new Set();
     for (let char of alphabet) {
@@ -30,14 +30,18 @@ const substitutionModule = (function () {
         const index = encode
         ? standardAlphabet.indexOf(char)
         : substitutionAlphabet.indexOf(char);
-        result += encode ? substitutionAlphabet[index] : standardAlphabet[index];
+        
+        if (index !== -1) {
+          result += encode ? substitutionAlphabet[index] : standardAlphabet[index];
+        } else {
+          result += char;
+        }
       } else {
         result += char;
       }
-
     }
     return result;
-    // your solution code here
+    // your solution code here no wait it was all up there my b  8|
   }
 
   return {
