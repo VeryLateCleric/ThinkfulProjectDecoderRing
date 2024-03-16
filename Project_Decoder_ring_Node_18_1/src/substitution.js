@@ -21,14 +21,23 @@ const substitutionModule = (function () {
     if (!isValidAlphabet(alphabet)) return false;
     
 
-    const standardAlphabet = "";
-    const substitutionAlphabet = "";
+    const standardAlphabet = "abcdefghijklmnopqrstuvwxyz";
+    const substitutionAlphabet = alphabet.toLowerCase();
     
     let result = '';
     for (let i = 0; i < input.length; i++) {
+      const char = input[i].toLowerCase();
+
+      if (char.match(/[a-z]/)) {
+        const index = encode
+        ? standardAlphabet
+        : substitutionAlphabet
+        result += encode ? substitutionAlphabet : standardAlphabet
+      } else {
+        result += char;
+      }
 
     }
-
     return result;
     // your solution code here
   }
