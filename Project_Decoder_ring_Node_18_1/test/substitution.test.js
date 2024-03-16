@@ -26,4 +26,13 @@ describe("substitution", () => {
     it("should return false if alphabet characters are not unique", () => {
       expect(substitution("hello", "abcdefghijklmnopqrstuvwxyz")).to.equal(false);
     });
+
+    it("should encode and decode correctly with different alphabets", () => {
+      const input = "The quick brown fox jumps over the lazy dog.";
+      const alphabet1 = "qwertyuiopasdfghjklzxcvbnm";
+      const encoded = substitution(input, alphabet1);
+      const decoded = substitution(encoded, alphabet1, false);
+      expect(decoded).to.equal(input.toLowerCase());
+    });
+  
   });

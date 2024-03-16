@@ -19,6 +19,17 @@ const substitutionModule = (function () {
 
   function substitution(input, alphabet, encode = true) {
     if (!isValidAlphabet(alphabet)) return false;
+    
+
+    const standardAlphabet = "";
+    const substitutionAlphabet = "";
+    
+    let result = '';
+    for (let i = 0; i < input.length; i++) {
+
+    }
+
+    return result;
     // your solution code here
   }
 
