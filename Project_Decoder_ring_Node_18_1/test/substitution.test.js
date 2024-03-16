@@ -24,7 +24,7 @@ describe("substitution", () => {
     });
   
     it("should return false if alphabet characters are not unique", () => {
-      expect(substitution("hello", "abcdefghijklmnopqrstuvwxyz")).to.equal(false);
+      expect(substitution("hello", "abcdefghijklmmopqrstuvwxyz")).to.equal(false);
     });
 
     it("should encode and decode correctly with different alphabets", () => {
