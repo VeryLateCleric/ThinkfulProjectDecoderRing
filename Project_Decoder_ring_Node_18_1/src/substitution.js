@@ -6,13 +6,12 @@
 const substitutionModule = (function () {
   // you can add any code you want within this function scope
   function isValidAlphabet(alphabet) {
-    const alphabetSet = new Set()
-    if (alphabetSet.size !== 26) return false;
+    if (alphabet.length !== 26) return false;
 
     const seen = new Set();
     for (let char of alphabet) {
       if (seen.has(char)) return false;
-      seen.add(char)
+      seen.add(char);
     }
     return true
   }
@@ -20,19 +19,18 @@ const substitutionModule = (function () {
   function substitution(input, alphabet, encode = true) {
     if (!isValidAlphabet(alphabet)) return false;
     
-
     const standardAlphabet = "abcdefghijklmnopqrstuvwxyz";
     const substitutionAlphabet = alphabet.toLowerCase();
     
-    let result = '';
+    let result = "";
     for (let i = 0; i < input.length; i++) {
       const char = input[i].toLowerCase();
 
       if (char.match(/[a-z]/)) {
         const index = encode
-        ? standardAlphabet
-        : substitutionAlphabet
-        result += encode ? substitutionAlphabet : standardAlphabet
+        ? standardAlphabet.indexOf(char)
+        : substitutionAlphabet.indexOf(char);
+        result += encode ? substitutionAlphabet[index] : standardAlphabet[index];
       } else {
         result += char;
       }
