@@ -6,7 +6,7 @@
 const substitutionModule = (function () {
   // you can add any code you want within this function scope
   function isValidAlphabet(alphabet) {
-    if (alphabet.length !== 26) return false;
+    if (!alphabet || alphabet.length !== 26) return false;
 
     const seen = new Set();
     for (let char of alphabet) {
