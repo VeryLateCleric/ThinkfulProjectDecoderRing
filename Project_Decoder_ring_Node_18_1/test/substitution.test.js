@@ -16,7 +16,7 @@ describe("substitution", () => {
     });
   
     it("should handle special characters", () => {
-      expect(substitution("hello!$#", "zyxwvutsrqponmlkjihgfedcba")).to.equal("svool!$#");
+      expect(substitution("hello!$#", "$yxwvutsrqponmlkjihgfedcba")).to.equal("svool!$#");
     });
   
     it("should return false if alphabet length is not 26", () => {

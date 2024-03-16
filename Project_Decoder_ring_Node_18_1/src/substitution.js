@@ -13,7 +13,7 @@ const substitutionModule = (function () {
       if (seen.has(char)) return false;
       seen.add(char);
     }
-    return true
+    return true;
   }
 
   function substitution(input, alphabet, encode = true) {
@@ -22,20 +22,18 @@ const substitutionModule = (function () {
     const standardAlphabet = "abcdefghijklmnopqrstuvwxyz";
     const substitutionAlphabet = alphabet.toLowerCase();
     
+    console.log(input);
+    console.log(substitutionAlphabet);
+
     let result = "";
     for (let i = 0; i < input.length; i++) {
       const char = input[i].toLowerCase();
-
-      if (char.match(/[a-z]/)) {
-        const index = encode
-        ? standardAlphabet.indexOf(char)
-        : substitutionAlphabet.indexOf(char);
-        
-        if (index !== -1) {
-          result += encode ? substitutionAlphabet[index] : standardAlphabet[index];
-        } else {
-          result += char;
-        }
+      const index = encode
+      ? standardAlphabet.indexOf(char)
+      : substitutionAlphabet.indexOf(char);
+      
+      if (index !== -1) {
+        result += encode ? substitutionAlphabet[index] : standardAlphabet[index];
       } else {
         result += char;
       }
